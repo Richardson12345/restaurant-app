@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>status order</title>
+</head>
+<body>
+    <h1>Status Order</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>no</th>
+                <th>name</th>
+                <th>username</th>
+                <th>status order</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <%for(var i = 0; i < transactions.length; i++){%>
+                        <td><%=i+1%></td>
+                        <td><%=fullNameHelper(transactions[i].User.firstName,transactions[i].User.lastName)%></td>
+                        <td><%=transactions[i].User.username%></td>
+                        <td><%=transactions[i].status%></td>
+                    <td><a href="/admin/order/<%= transactions[i].id %>">Edit</a></td>
+                    <%}%>
+                    
+                </tr>
+                
+            </tbody>
+          </table>
+        </div>
+</body>
+</html>
