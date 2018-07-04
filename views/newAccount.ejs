@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <form action="/newAccount" method= "POST">
+            First name:<br>
+            <input type="text" name="firstName" ><br>
+            Last name:<br>
+            <input type="text" name="lastName" ><br>
+            Address:<br>
+            <input type="text" name="address"><br>
+            City: <br>
+            <input type="text" name="city"><br>
+            Username: <br>
+            <input type="text" name="username"><br>
+            Password:<br>
+            <input type="text" name="password"><br>
+            Voucher:<br>
+            <input type="number" name="voucher" min="0" max="1000"><br>
+            isAdmin:<br>
+            <select name="isAdmin" item-width="100">
+                <option value="true">true</option>
+                <option value="false">false</option>
+            </select><br>
+            <input type="submit" value="Submit">
+          </form>
+    
+</body>
+</html>
