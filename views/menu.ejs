@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>this is the menu page</h1>
+    <hr>
+    <br>
+    <table border="3">
+        <tr> <th>id</th>
+            <th>name</th>
+            <th>price</th>
+        </tr>     
+        <%for(let z =0; z < itemArr.length; z ++){ %>
+            <tr>
+                <td><%= itemArr[z].id%></td>
+                <td><%= itemArr[z].name%></td>
+                <td><%= itemArr[z].price%></td>
+            </tr>
+       <%}%>
+    </table> 
+    <br>
+    <hr>
+    <a href="/home/user">home</a>   
+</body>
+</html>
