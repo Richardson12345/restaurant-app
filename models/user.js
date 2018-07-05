@@ -2,8 +2,32 @@
 const bcrypt = require('bcrypt')
 module.exports = (sequelize, DataTypes) => {
   var User = sequelize.define('User', {
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING,
+    firstName: {
+      type:DataTypes.STRING,
+      validate:{
+        notNull(value,cb){
+          if(value.length<=0){
+            cb("Title is Required")
+          }
+          else{
+            cb()
+          }
+        }
+      }
+    },
+    lastName: {
+      type:DataTypes.STRING,
+      validate:{
+        notNull(value,cb){
+          if(value.length<=0){
+            cb("Title is Required")
+          }
+          else{
+            cb()
+          }
+        }
+      }
+    },
     address: DataTypes.STRING,
     city: DataTypes.STRING,
     username: {
@@ -24,10 +48,29 @@ module.exports = (sequelize, DataTypes) => {
           .catch(err=>{
             console.log(err);
           })
+        },notNull(value,cb){
+          if(value.length<=0){
+            cb("username is Required")
+          }
+          else{
+            cb()
+          }
         }
       }
     },
-    password: DataTypes.STRING,
+    password: {
+      type:DataTypes.STRING,
+      validate:{
+        notNull(value,cb){
+          if(value.length<=0){
+            cb("Title is Required")
+          }
+          else{
+            cb()
+          }
+        }
+      }
+    },
     voucher: {
       type : DataTypes.INTEGER,
       defaultValue: 0
@@ -39,6 +82,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     hooks:{
       beforeCreate:(User,option)=>{
+        var salt = bcrypt.genSaltSync(5);
+        var hash = bcrypt.hashSync(User.password, salt);
+        User.password = hash;
+      },
+      afterUpdate:(User,option)=>{
         var salt = bcrypt.genSaltSync(5);
         var hash = bcrypt.hashSync(User.password, salt);
         User.password = hash;

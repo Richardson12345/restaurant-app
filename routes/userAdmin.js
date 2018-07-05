@@ -8,7 +8,6 @@ const Menu = model.Menu
 routes.get('/home/admin',(req,res,next)=>{
     if(req.session.user){
         if(req.session.user.isAdmin==1){
-            // res.json(req.session.user)
             res.render('home-admin')
         }
         else{
@@ -23,15 +22,12 @@ routes.get('/home/admin',(req,res,next)=>{
 })
 
 routes.get('/admin/order',(req,res)=>{
-    // res.send("table order dari admin")
     Transaction.findAll({
         include:[
             {model:User},
             {model:Menu}
         ],order:[['id','asc']]})
     .then(transactions=>{
-        // res.json(transactions)
-
         res.render('statusOrder',{transactions:transactions})
     })
     .catch(err=>{
@@ -59,7 +55,6 @@ routes.post('/admin/order/:id',(req,res)=>{
                 where: {id:req.params.id}
             })
             .then(id=>{
-                // res.send(transaction)
                 Transaction.find({
                     where: {id:req.params.id},
                     include : [User]
@@ -119,7 +114,6 @@ routes.post('/admin/order/:id',(req,res)=>{
 routes.get('/admin/menu',(req,res)=>{
     Menu.findAll({order:[['id','asc']]})
     .then(menus=>{
-        // res.send("add menu dari admin")
         res.render('menuTable',{menus:menus})
     })
     .catch(err=>{

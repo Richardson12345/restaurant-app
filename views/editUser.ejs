@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>menu</title>
+    <title>Edit</title>
     <style>
             table {
                 font-family: arial, sans-serif;
@@ -63,32 +63,39 @@
         </style>
 </head>
 <body>
-        <div class="topnav">
-                <a href="/admin/order">Order</a>
-                <a href="/admin/menu">Menu</a>
-                <a href="/report">Report</a>
-                <a href="/logout">Logout</a>
-                </div>
-                <div style="padding-left:16px">
-        </div>
-        <h2>Menu</h2>
-        <a href="/menu/add">add menu</a>
-        <br><br>
-        <table>
-          <tr>
-            <th>No</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Option</th>
-          </tr>
-          <%for(var i = 0; i < menus.length; i++){%>
-          <tr>
-                <td><%=i+1%></td>
-                <td><%=menus[i].name%></td>
-                <td><%=menus[i].price%></td>
-                <td><a href="/menu/edit/<%= menus[i].id%>">Edit</a> | <a href="/menu/delete/<%= menus[i].id%>" onclick="return confirm('Are you sure?')">Delete</a></td>
-         </tr>
-          <%}%>
-        </table>
+    <div class="topnav">
+            <a href="/user/menu">Menu</a>
+            <a href="/user/cart">Cart</a>
+            <a href="/user/edit">Edit User</a>
+            <a href="/user/transaction">Transaction</a>
+            <a href="/logout">Logout</a>
+            </div>
+            <div style="padding-left:16px">
+    </div>
+    <h2>EDIT</h2>
+    <h4 style="color: red"><%=err%></h4>
+    <form action="/user/edit" method="POST">
+        First Name:<br>
+        <input type="text" name="firstName" value="<%=user.firstName%>">
+        <br>
+        Last Name:<br>
+        <input type="text" name="lastName" value="<%=user.lastName%>">
+        <br>
+        Address:<br>
+        <input type="text" name="address" value="<%=user.address%>">
+        <br>
+        City:<br>
+        <input type="text" name="city" value="<%=user.city%>">
+        <br>
+        Username:<br>
+        <input type="text" name="username" readonly value="<%=user.username%>">
+        <br>
+        Password:<br>
+        <input type="text" name="password">
+        <br>
+        <br>
+        <input type="submit" value="Submit">
+      </form> 
+      
 </body>
 </html>

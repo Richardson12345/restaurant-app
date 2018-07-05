@@ -15,7 +15,10 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue:0
     },
     cash: DataTypes.INTEGER,
-    voucher: DataTypes.INTEGER,
+    voucher: {
+      type:DataTypes.INTEGER,
+      defaultValue:0
+    },
     total: DataTypes.INTEGER
   }, {});
   Transaction.associate = function(models) {

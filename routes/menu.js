@@ -6,7 +6,6 @@ const Menu = model.Menu
 routes.get('/menu/edit/:id',(req,res)=>{
     Menu.findById(req.params.id)
     .then(menu=>{
-        // res.json(menu)
         res.render('editMenu',{menu:menu})
     })
     .catch(err=>{
@@ -22,7 +21,6 @@ routes.post('/menu/edit/:id',(req,res)=>{
         where: {id:req.params.id}
     })
     .then(menu=>{
-        // res.send("berhasil")
         res.redirect("/admin/menu")
     })
     .catch(err=>{

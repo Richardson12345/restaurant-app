@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>menu</title>
+    <title>Document</title>
     <style>
             table {
                 font-family: arial, sans-serif;
@@ -63,32 +63,34 @@
         </style>
 </head>
 <body>
-        <div class="topnav">
-                <a href="/admin/order">Order</a>
-                <a href="/admin/menu">Menu</a>
-                <a href="/report">Report</a>
-                <a href="/logout">Logout</a>
-                </div>
-                <div style="padding-left:16px">
+    <div class="topnav">
+        <a href="/user/menu">Menu</a>
+        <a href="/user/cart">Cart</a>
+        <a href="/user/edit">Edit User</a>
+        <a href="/user/transaction">Transaction</a>
+        <a href="/logout">Logout</a>
         </div>
-        <h2>Menu</h2>
-        <a href="/menu/add">add menu</a>
-        <br><br>
-        <table>
-          <tr>
-            <th>No</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Option</th>
-          </tr>
-          <%for(var i = 0; i < menus.length; i++){%>
-          <tr>
-                <td><%=i+1%></td>
-                <td><%=menus[i].name%></td>
-                <td><%=menus[i].price%></td>
-                <td><a href="/menu/edit/<%= menus[i].id%>">Edit</a> | <a href="/menu/delete/<%= menus[i].id%>" onclick="return confirm('Are you sure?')">Delete</a></td>
-         </tr>
-          <%}%>
-        </table>
+        <div style="padding-left:16px">
+    </div>
+    <table>
+            <tr>
+              <th>No</th>
+              <th>Id Transaction</th>
+              <th>Tanggal</th>
+              <th>Total</th>
+              <th>Status</th>
+              <!-- <th> </th> -->
+            </tr>
+            <%for(var i = 0; i < transactions.length; i++){%>
+            <tr>
+                  <td><%=i+1%></td>
+                  <td><%=transactions[i].id%></td>
+                  <td><%=transactions[i].createdAt%></td>
+                  <td><%=transactions[i].total%></td>
+                  <td><%=transactions[i].status%></td>
+                  <!-- <td><a href="/user/transaction/detail/<%= transactions[i].id%>">detail</a></td> -->
+           </tr>
+            <%}%>
+      </table>
 </body>
 </html>

@@ -4,8 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Menu</title>
     <style>
-            body {
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        body {
               margin: 0;
               font-family: Arial, Helvetica, sans-serif;
             }
@@ -44,17 +60,33 @@
               background-color: #4CAF50;
               color: white;
             }
-          </style>
-    <title>Home</title>
+    </style>
 </head>
 <body>
-        <div class="topnav">
-                <a href="/admin/order">Order</a>
-                <a href="/admin/menu">Menu</a>
-                <a href="/report">Report</a>
-                <a href="/logout">Logout</a>
-                </div>
-                <div style="padding-left:16px">
+    <div class="topnav">
+        <a href="/user/menu">Menu</a>
+        <a href="/user/cart">Cart</a>
+        <a href="/user/edit">Edit</a>
+        <a href="/user/transaction">Transaction</a>
+        <a href="/logout">Logout</a>
         </div>
+        <div style="padding-left:16px">
+    </div>
+    <table>
+          <tr>
+            <th>No</th>
+            <th>Nama Menu</th>
+            <th>Harga</th>
+            <th> </th>
+          </tr>
+          <%for(var i = 0; i < menus.length; i++){%>
+          <tr>
+                <td><%=i+1%></td>
+                <td><%=menus[i].name%></td>
+                <td><%=menus[i].price%></td>
+                <td><a href="/user/menu/<%= menus[i].id%>">Add</a></td>
+         </tr>
+          <%}%>
+    </table>
 </body>
 </html>

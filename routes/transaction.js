@@ -17,15 +17,11 @@ routes.get('/report',(req,res)=>{
                 lateTransaction.push(transactions[i])
             }
         }
-        // console.log(lateTransaction);
-        
-        // res.json(lateTransaction)
         res.render('report',{lateTransaction:lateTransaction,total:total})
     })
     .catch(err=>{
         res.json(err)
     })
-    // res.send('di transaction nichhh')
 })
 
 
