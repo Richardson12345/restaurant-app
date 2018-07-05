@@ -7,15 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-        <form action="/admin/order/<%=id%>" method="POST">
+        <form action="/admin/order/<%=transaction.id%>" method="POST">
             Status:<br>
             <select name="status">
+                    <option value=<%=transaction.status%>><%=transaction.status%></option>
                     <option value="checkout">checkout</option>
                     <option value="on-progress">on progress</option>
                     <option value="delivery">delivery</option>
+                    <option value="delivered">delivered</option>
                     <option value="complete">complete</option>
             </select>
             <input type="submit" value="Submit">
+            <a href='/admin/order'>Back</a>
           </form>
 </body>
 </html>

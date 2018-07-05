@@ -18,19 +18,21 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <%for(var i = 0; i < transactions.length; i++){%>
+            <%for(var i = 0; i < transactions.length; i++){%>
+                <tr>
                         <td><%=i+1%></td>
                         <td><%=fullNameHelper(transactions[i].User.firstName,transactions[i].User.lastName)%></td>
                         <td><%=transactions[i].User.username%></td>
                         <td><%=transactions[i].status%></td>
                     <td><a href="/admin/order/<%= transactions[i].id %>">Edit</a></td>
+                </tr>
                     <%}%>
                     
-                </tr>
                 
             </tbody>
           </table>
+          <br>
+          <a href='/home/admin'>Back</a>
         </div>
 </body>
 </html>

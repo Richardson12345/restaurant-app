@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>menu</title>
+    <style>
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+            
+            tr:nth-child(even) {
+                background-color: #dddddd;
+            }
+    </style>
+</head>
+<body>
+        <h2>Menu</h2>
+        <a href="/menu/add">add menu</a>
+        <br><br>
+        <table>
+          <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Option</th>
+          </tr>
+          <%for(var i = 0; i < menus.length; i++){%>
+          <tr>
+                <td><%=i+1%></td>
+                <td><%=menus[i].name%></td>
+                <td><%=menus[i].price%></td>
+                <td><a href="/menu/edit/<%= menus[i].id%>">Edit</a> | <a href="/menu/delete/<%= menus[i].id%>" onclick="return confirm('Are you sure?')">Delete</a></td>
+         </tr>
+          <%}%>
+        </table>
+        <a href = '/home/admin'>Back</a>
+</body>
+</html>

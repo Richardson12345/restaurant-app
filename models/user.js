@@ -1,4 +1,5 @@
 'use strict';
+const bcrypt = require('bcrypt')
 module.exports = (sequelize, DataTypes) => {
   var User = sequelize.define('User', {
     firstName: DataTypes.STRING,
@@ -14,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
           })
           .then(user=>{
             if(user.length>0){
-              cb("email already used")
+              cb("username already used")
             }
             else{
               cb()
@@ -35,7 +36,15 @@ module.exports = (sequelize, DataTypes) => {
       type : DataTypes.INTEGER,
       defaultValue: 0
     }
-  }, {});
+  }, {
+    hooks:{
+      beforeCreate:(User,option)=>{
+        var salt = bcrypt.genSaltSync(5);
+        var hash = bcrypt.hashSync(User.password, salt);
+        User.password = hash;
+      }
+    }
+  });
   User.associate = function(models) {
     // associations can be defined here
     User.hasMany(models.Transaction)

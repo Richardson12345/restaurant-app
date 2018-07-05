@@ -8,4 +8,8 @@ const Menu = model.Menu
 routes.get('/',(req,res)=>{
     res.send('diuser nichhh')
 })
+
+routes.get('/user',(req,res)=>{
+    res.json(req.session.user)
+})
 module.exports = routes

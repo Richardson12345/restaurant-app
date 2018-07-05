@@ -8,7 +8,8 @@
 </head>
 <body>
     <h1>CREATE AN ACCOUNT</h1>
-    <form action="/newAccount" method="POST">
+    <h4 style="color: red"><%=err%></h4>
+    <form action="/register" method="POST">
         First Name:<br>
         <input type="text" name="firstName">
         <br>
@@ -16,10 +17,10 @@
         <input type="text" name="lastName">
         <br>
         Address:<br>
-        <input type="text" name="Address">
+        <input type="text" name="address">
         <br>
         City:<br>
-        <input type="text" name="City">
+        <input type="text" name="city">
         <br>
         Username:<br>
         <input type="text" name="username">

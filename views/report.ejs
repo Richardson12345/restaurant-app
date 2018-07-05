@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>report</title>
+    <style>
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+            
+            tr:nth-child(even) {
+                background-color: #dddddd;
+            }
+    </style>
+</head>
+<body>
+
+    <h2>Report</h2>
+        <br><br>
+        <table>
+          <tr>
+            <th>No</th>
+            <th>ID Transaction</th>
+            <th>Waktu Terlambat</th>
+            <th>Voucher</th>
+          </tr>
+          <%for(var i = 0; i < lateTransaction.length; i++){%>
+          <tr>
+                <td><%=i+1%></td>
+                <td><%=lateTransaction[i].id%></td>
+                <td><%=lateTransaction[i].lateTransaction%></td>
+                <td>25000</td>
+         </tr>
+          <%}%>
+        </table>
+        <h4>Banyak Transaksi : <%=lateTransaction.length%></h4>
+        <h4>Total Waktu Terlambat : <%=total%></h4> 
+        <h4>Banyak Voucher : <%=lateTransaction.length%></h4> 
+        <h4>Total Voucher : <%=lateTransaction.length*25000%></h4> 
+
+        <a href = '/home/admin'>Back</a>
+</body>
+</html>
