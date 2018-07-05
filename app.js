@@ -118,6 +118,7 @@ app.get('/home/user',(req,res)=>{
         res.render('home-user')
 })
 
+
 app.use('/',menu)
 
 app.use('/',user)

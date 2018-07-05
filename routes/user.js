@@ -238,7 +238,8 @@ routes.post('/user/edit',(req,res)=>{
         where: {id:req.session.user.id}
     })
     .then(user=>{
-        res.redirect("/home/user")
+        res.render('updatedUser')
+        // res.redirect("/home/user")
     })
     .catch(err=>{
         User.findById(req.session.user.id)

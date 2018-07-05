@@ -79,13 +79,15 @@
             <th>ID Transaction</th>
             <th>Waktu Terlambat</th>
             <th>Voucher</th>
+            <th>name</th>
           </tr>
           <%for(var i = 0; i < lateTransaction.length; i++){%>
           <tr>
-                <td><%=i+1%></td>
-                <td><%=lateTransaction[i].id%></td>
-                <td><%=lateTransaction[i].lateTransaction%></td>
-                <td>25000</td>
+            <td><%=i+1%></td>
+            <td><%=lateTransaction[i].id%></td>
+            <td><%=lateTransaction[i].lateTransaction%></td>
+            <td>25000</td>
+            <td><%=fullNameHelper(lateTransaction[i].User.firstName,lateTransaction[i].User.lastName) %></td>
          </tr>
           <%}%>
         </table>

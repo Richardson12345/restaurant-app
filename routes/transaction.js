@@ -4,7 +4,10 @@ const model = require('../models')
 const Transaction = model.Transaction
 
 routes.get('/report',(req,res)=>{
-    Transaction.findAll()
+    Transaction.findAll({
+        order: [["createdAt", "asc"]],
+        include : [{model : model.User}]
+    })
     .then(transactions=>{
         var lateTransaction = []
         var total = 0
