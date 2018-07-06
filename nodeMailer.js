@@ -1,21 +1,21 @@
-let send = function (email, user) {
+let send = function (email) {
 
 
     var nodemailer = require('nodemailer');
     var transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'sdpusparani.sd@gmail.com',
-        pass: '******'
+        user: 'chuddywarrior@gmail.com',
+        pass: '11121314151'
       }
     });
   
   
     const mailOptions = {
-      from: 'sdpusparani.sd@gmail.com', // sender address
-      to: email, // list of receivers
-      subject: 'Welcome to the good Apps ', // Subject line
-      html: '<p>Hi ' + user + ', welcome to the Good Apps!.  Enjoy our apps and listening all musics </p>' // plain text body
+      from: 'chuddywarrior@gmail.com', // sender address
+      to: email,  // list of receivers
+      subject: 'Welcome to Food Ordering Apps ', // Subject line
+      html: '<p>Hi welcome to the food apps!.  now you can order food in the convenince of your home </p>' // plain text body
     };
   
   

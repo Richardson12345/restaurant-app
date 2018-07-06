@@ -5,6 +5,7 @@ const User = model.User
 const Transaction = model.Transaction
 const Menu = model.Menu
 const MenuTransaction = model.MenuTransaction
+const send = require("../nodeMailer")
 
 
 routes.get('/user',(req,res)=>{
@@ -20,6 +21,8 @@ routes.get('/user/menu',(req,res)=>{
     })
 })
 
+
+// routes.get("/user/")
 routes.get('/user/menu/:id',(req,res)=>{
     if(!req.session.TransactionId){
         Transaction.create({
@@ -247,6 +250,17 @@ routes.post('/user/edit',(req,res)=>{
             res.render('editUser',{user:user,err:err.message})
         })
     })
+})
+
+
+routes.get("/user/subscribe", (req,res)=>{
+    res.render("userSubscribe")
+})
+
+routes.post("/user/subscribe", (req,res)=>{
+    let email = req.body.email
+    send(email)
+    res.render("subscribeSucess.ejs", {email})
 })
 
 module.exports = routes
