@@ -7,8 +7,13 @@
     "dialect": "postgres"
   }, 
     "production": {
-      "use_env_variable": "DATABASE_URL",
-      "dialect": "postgres"
-    }
+    "username": "tkcyuwuuihubcw",
+    "password": "d68f0ca9aaa9bfeccf9449a0f37be29b279380b06193f789838c97ff79a69646",
+    "database": "d71qp5sfkhf60q",
+    "host": "ec2-23-21-162-90.compute-1.amazonaws.com",
+    "dialect": "postgres",
+    "port" : "5432",
+    "uri" : "postgres://tkcyuwuuihubcw:d68f0ca9aaa9bfeccf9449a0f37be29b279380b06193f789838c97ff79a69646@ec2-23-21-162-90.compute-1.amazonaws.com:5432/d71qp5sfkhf60q"
+    
+  }
 }
-
