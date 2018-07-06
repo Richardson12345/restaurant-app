@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     eta: {
       type:DataTypes.INTEGER,
-      defaultValue:1
+      defaultValue:30
     },
     arrivalTime: {
       type:DataTypes.INTEGER,
