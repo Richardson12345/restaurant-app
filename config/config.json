@@ -5,5 +5,12 @@
     "database": "restaurantApp",
     "host": "127.0.0.1",
     "dialect": "postgres"
+  }, 
+    "production": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "restaurantApp",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
   }
 }
