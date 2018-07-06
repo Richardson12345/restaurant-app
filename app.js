@@ -14,7 +14,7 @@ const user = require('./routes/user.js')
 const transaction = require('./routes/transaction.js')
 const menu = require('./routes/menu.js')
 const admin = require('./routes/userAdmin.js')
-
+const port = process.env.PORT || 3000;
 
 app.set('view engine','ejs')
 app.use(express.urlencoded({extended: false}))
@@ -131,4 +131,6 @@ app.use('/test',(req,res)=>{
 })
 
 
-app.listen(3000)
+app.listen(port, function(){
+    console.log(`Server Starts on ${port}`)
+})
